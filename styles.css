@@ -71,7 +71,7 @@ rt { font-size:.55em; color:var(--muted); }
 .speak { color:var(--indigo); background:none; border:0; cursor:pointer; display:flex; align-items:center; gap:5px; padding:8px; font-size:13px; }
 .speak svg { width:18px; }
 .note { margin:18px 0; padding:13px 18px; border:1px solid var(--rule); border-left:4px solid var(--vermilion); background:#f8f4ef; }
-.note strong { color:var(--vermilion); display:block; font-size:13px; }
+.note > .study-label { color:var(--vermilion); font-size:13px; }
 .self-test { border:1px dashed #aeb1b8; margin:18px 0 2px; }
 .self-test summary { display:flex; align-items:center; gap:20px; cursor:pointer; padding:12px 18px; list-style:none; }
 .self-test summary::-webkit-details-marker { display:none; }
