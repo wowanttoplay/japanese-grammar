@@ -114,3 +114,40 @@ rt { font-size:.55em; color:var(--muted); }
   .complete-button { grid-column:1/-1; grid-row:1; }
 }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+
+/* Reading hierarchy: shape and labels accompany color cues. */
+.definition { background:#eff3f9; border:1px solid #d8e1ef; border-radius:10px; padding:18px 22px; margin:18px 0 24px; gap:12px 20px; }
+.definition dt { color:#315580; font-size:13px; padding-top:2px; }
+.definition .connection { color:#183e70; font-weight:600; line-height:1.95; }
+.study-label { font-family:var(--font-ui); font-size:13px; font-weight:700; letter-spacing:.08em; margin:0 0 12px; color:#526174; }
+.explanation { white-space:normal; margin:0 0 24px; color:#374151; font-size:16px; line-height:2; }
+.explanation p { margin:0 0 14px; max-width:48em; }
+.quoted-expression { color:#214d80; font-weight:600; background:#eaf0f8; border-radius:3px; padding:1px 3px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.grammar-term { color:#233247; font-weight:700; text-decoration:underline; text-decoration-color:#b8c8dc; text-underline-offset:4px; }
+.example-label { color:#32655c; margin-bottom:4px; }
+.example-row { background:#f0f5f2; border:1px solid #d9e6de; border-radius:10px; padding:20px 16px; }
+.cn { font-size:14px; color:#59645f; margin-top:6px; }
+.note { border-radius:0 8px 8px 0; color:#55463f; line-height:1.95; padding:18px 20px; }
+.note .study-label { color:#963c2c; margin-bottom:8px; }
+.note strong { display:inline; font-size:inherit; }
+.note .quoted-expression { color:#7d382a; background:#f0e4dc; }
+.note .grammar-term { color:#683e32; text-decoration-color:#d8b8a9; }
+.self-test { border-style:solid; border-radius:8px; background:#fffdf8; }
+.self-test[open] { border-color:#7993b7; }
+.self-test summary { flex-wrap:wrap; gap:10px 18px; }
+.test-prompt { min-width:160px; }
+a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid #5275ab; outline-offset:4px; }
+@media (max-width:850px) {
+  .definition { grid-template-columns:1fr; gap:4px; padding:16px; }
+  .definition dd + dt { margin-top:10px; }
+  .explanation { font-size:16px; }
+  .note { padding:16px; }
+  .grammar-section { scroll-margin-top:82px; }
+  .grammar-section h2 { overflow-wrap:anywhere; }
+  .show-answer { margin-left:auto; }
+}
+@media print {
+  body::before { display:none; }
+  .quoted-expression { background:none; }
+  .definition,.example-row,.note { break-inside:avoid; }
+}
