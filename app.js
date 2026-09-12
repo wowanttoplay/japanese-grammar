@@ -37,17 +37,32 @@ document.querySelectorAll("[data-audio]").forEach(button => button.addEventListe
   currentAudio.play();
 }));
 const tocLinks = [...document.querySelectorAll(".toc a")];
-if (tocLinks.length && "IntersectionObserver" in window) {
-  const links = new Map(tocLinks.map(a => [a.getAttribute("href").slice(1), a]));
-  const observer = new IntersectionObserver(entries => {
-    const visible = entries.filter(e => e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top)[0];
-    if (!visible) return;
-    tocLinks.forEach(a => a.classList.remove("active"));
-    links.get(visible.target.id)?.classList.add("active");
-  }, { rootMargin:"-18% 0px -65%", threshold:0 });
-  document.querySelectorAll(".grammar-section").forEach(section => observer.observe(section));
+if (tocLinks.length) {
+  const sections = [...document.querySelectorAll(".grammar-section")];
+  let queued = false;
+  const updateToc = () => {
+    queued = false;
+    const boundary = (document.querySelector(".site-header")?.getBoundingClientRect().bottom || 76) + 40;
+    let active = sections[0]?.id;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top <= boundary) active = section.id;
+      else break;
+    }
+    tocLinks.forEach(link => {
+      const selected = link.getAttribute("href") === `#${active}`;
+      link.classList.toggle("active", selected);
+      if (selected) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  };
+  const scheduleToc = () => {
+    if (!queued) { queued = true; requestAnimationFrame(updateToc); }
+  };
+  window.addEventListener("scroll", scheduleToc, {passive:true});
+  window.addEventListener("resize", scheduleToc);
+  window.addEventListener("pageshow", scheduleToc);
+  updateToc();
 }
-
 
 // Check only while visible; restore the reading position after an update.
 (() => {
