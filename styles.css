@@ -172,3 +172,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid #
 .form-card .omitted-ending{color:#b54232;text-decoration-line:line-through;text-decoration-thickness:2px;}
 
 .form-card .connection-example{color:var(--ink,#263247);font-weight:400}.form-card .added-ending{color:#245b8c;font-weight:700;}
+
+.self-test .inline-answer,.self-test .when-open{display:none}
+.self-test[open] .question-text,.self-test[open] .when-closed{display:none}
+.self-test[open] .inline-answer,.self-test[open] .when-open{display:inline}
+.filled-blank{color:#245b8c;font-weight:700;border-bottom:2px solid #a6bfd8;padding:0 3px}
