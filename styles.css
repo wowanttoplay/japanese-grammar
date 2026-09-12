@@ -168,3 +168,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible { outline:3px solid #
   .grammar-section h2 { font-size:25px; }
 }
 @media print { .form-card { break-inside:avoid; } .form-grid { display:block; } .form-card { margin-bottom:14px; } }
+
+.form-card .omitted-ending{color:#b54232;text-decoration-line:line-through;text-decoration-thickness:2px;}
+
+.form-card .connection-example{color:var(--ink,#263247);font-weight:400}.form-card .added-ending{color:#245b8c;font-weight:700;}
