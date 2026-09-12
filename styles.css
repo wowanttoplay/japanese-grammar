@@ -61,7 +61,7 @@ button { font:inherit; }
 .definition { display:grid; grid-template-columns:62px 1fr; gap:4px 28px; border-bottom:1px solid var(--rule); padding:0 0 13px; margin-bottom:2px; }
 .definition dt { color:var(--vermilion); font-weight:700; }
 .definition dd { margin:0; }
-.explanation { color:#454b58; margin:13px 0 4px; }
+.explanation { color:#454b58; margin:13px 0 4px; white-space:pre-line; }
 .examples { margin:0; padding:0; list-style:none; }
 .example-row { display:grid; grid-template-columns:30px minmax(0,1fr) auto; gap:16px; border-bottom:1px solid var(--rule); padding:14px 2px; align-items:center; }
 .example-index { font-family:var(--font-display); color:var(--muted); font-size:19px; }
